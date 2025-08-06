@@ -1,0 +1,180 @@
+!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KFS - Thu Mua Apple Giá Cao</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #004a99;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    h1 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #004a99;
+    }
+    .highlight {
+      color: red;
+      font-weight: bold;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .cta {
+      background-color: #004a99;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: 8px;
+    }
+    .cta a {
+      color: yellow;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    footer {
+      background: #222;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li::before {
+      content: "\2714";
+      color: green;
+      margin-right: 0.5rem;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #004a99;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #003974;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KFS - Thu Mua Apple Giá Cao</h1>
+    <p>Hotline: <strong>0903 963 966 (Mr. Huy)</strong></p>
+  </header>
+
+  <div class="container">
+    <div class="section">
+      <h2>Chuyên Thu Mua Các Dòng Apple</h2>
+      <ul>
+        <li>iPhone (cũ/mới, còn hoặc hết bảo hành)</li>
+        <li>iPad, Macbook, Apple Watch, AirPods</li>
+        <li>Nhận máy khoá iCloud, dính tài khoản, lỗi nhẹ</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Cam Kết Từ KFS</h2>
+      <ul>
+        <li>Giá cao hơn thị trường <span class="highlight">5-15%</span></li>
+        <li>Định giá chính xác – không ép giá</li>
+        <li>Thanh toán trong vòng <span class="highlight">5 phút</span></li>
+        <li>Thu mua tận nơi tại TP.HCM</li>
+        <li>Hỗ trợ ship 2 chiều toàn quốc</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Quy Trình Thu Mua</h2>
+      <ol>
+        <li>Gửi thông tin máy cần bán qua Zalo/Facebook hoặc gọi hotline</li>
+        <li>Nhận báo giá trong 3 phút</li>
+        <li>Hẹn địa điểm giao dịch hoặc gửi máy</li>
+        <li>Kiểm tra máy – Thanh toán ngay</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>Khách Hàng Nói Gì?</h2>
+      <p><em>“Bán iPhone 14 Pro Max tại KFS, giá cao hơn 1 triệu so với nơi khác. Làm việc nhanh gọn, chuyên nghiệp!”</em> — Anh Hưng (Q. Bình Thạnh)</p>
+      <p><em>“Macbook bị sọc màn nhẹ, KFS vẫn mua giá tốt, chuyển khoản liền tay!”</em> — Chị Trang (Biên Hòa)</p>
+    </div>
+
+    <div class="section">
+      <h2>Đăng ký bán thiết bị Apple</h2>
+      <form id="kfsForm">
+        <label>Họ tên:<br><input type="text" name="name" required></label><br>
+        <label>Số điện thoại:<br><input type="tel" name="phone" required></label><br>
+        <label>Loại sản phẩm:<br><input type="text" name="product" required></label><br>
+        <label>Ghi chú:<br><textarea name="note"></textarea></label><br>
+        <button type="submit">Gửi thông tin</button>
+        <p id="formMessage" style="color: green;"></p>
+      </form>
+    </div>
+
+    <div class="cta">
+      <p>Bạn có sản phẩm Apple cần bán?</p>
+      <p><a href="tel:0903963966">Gọi ngay: 0903 963 966 (Mr. Huy)</a></p>
+      <p>Hoặc liên hệ qua <a href="#">Zalo</a> | <a href="#">Facebook</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>KFS - Thu Mua Apple Chuyên Nghiệp | Tông màu: Xanh dương - Chữ đỏ</p>
+  </footer>
+
+  <script>
+    document.getElementById('kfsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        phone: form.phone.value,
+        product: form.product.value,
+        note: form.note.value
+      };
+
+      fetch('LINK_APPS_SCRIPT_CUA_BAN', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(response => response.text())
+        .then(result => {
+          document.getElementById('formMessage').innerText = 'Gửi thành công! Chúng tôi sẽ liên hệ sớm.';
+          form.reset();
+        }).catch(error => {
+          document.getElementById('formMessage').innerText = 'Gửi thất bại. Vui lòng thử lại.';
+                });
+    </script>
+</body>
+</html>
