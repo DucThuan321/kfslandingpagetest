@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
@@ -133,8 +133,8 @@
       <form id="kfsForm">
         <label>Họ tên:<br><input type="text" name="name" required></label><br>
         <label>Số điện thoại:<br><input type="tel" name="phone" required></label><br>
-        <label>Địa chỉ:<br><input type="text" name="product" required></label><br>
-        <label>Tình trạng máy:<br><textarea name="note"></textarea></label><br>
+        <label>Địa chỉ:<br><input type="text" name="address" required></label><br>
+        <label>Tình trạng máy:<br><textarea name="status" required></textarea></label><br>
         <button type="submit">Gửi thông tin</button>
         <p id="formMessage" style="color: green;"></p>
       </form>
@@ -155,26 +155,26 @@
     document.getElementById('kfsForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const form = e.target;
-      const data = {
-        name: form.name.value,
-        phone: form.phone.value,
-        product: form.product.value,
-        note: form.note.value
-      };
 
-      fetch('https://script.google.com/macros/s/AKfycbxIPBko7uYmruG0Jw1R_KBNcE6CnUKGPmWgeONbGEHdkFfHqyIUpRY_BKyANre_09Yz/exec', {
+      const formData = new FormData();
+      formData.append('name', form.name.value);
+      formData.append('phone', form.phone.value);
+      formData.append('address', form.address.value);
+      formData.append('status', form.status.value);
+
+      fetch('https://script.google.com/macros/s/AKfycbzeJNASH8K4mmuhS5A-R11-i_8ONRhZOD2mQ6m_W_X9eEpni73F2uxeHlikT1n5L63vBg/exec', {
         method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }).then(response => response.text())
-        .then(result => {
-          document.getElementById('formMessage').innerText = 'Gửi thành công! Chúng tôi sẽ liên hệ sớm.';
-          form.reset();
-        }).catch(error => {
-          document.getElementById('formMessage').innerText = 'Gửi thất bại. Vui lòng thử lại.';
-                });
-    </script>
+        body: formData
+      })
+      .then(response => response.text())
+      .then(result => {
+        document.getElementById('formMessage').innerText = 'Gửi thành công! Chúng tôi sẽ liên hệ sớm.';
+        form.reset();
+      })
+      .catch(error => {
+        document.getElementById('formMessage').innerText = 'Gửi thất bại. Vui lòng thử lại.';
+      });
+    });
+  </script>
 </body>
 </html>
